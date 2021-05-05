@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="dataprojeModelStoreContainer" CdmEntityContainer="dataprojeEntities">
+    <EntitySetMapping Name="FaturaKalems">
+      <EntityTypeMapping TypeName="dataprojeModel.FaturaKalems">
+        <MappingFragment StoreEntitySet="FaturaKalems">
+          <ScalarProperty Name="FaturaKalemid" ColumnName="FaturaKalemid" />
+          <ScalarProperty Name="Aciklama" ColumnName="Aciklama" />
+          <ScalarProperty Name="Miktar" ColumnName="Miktar" />
+          <ScalarProperty Name="BirimFiyat" ColumnName="BirimFiyat" />
+          <ScalarProperty Name="Tutar" ColumnName="Tutar" />
+          <ScalarProperty Name="Faturaid" ColumnName="Faturaid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Faturalars">
+      <EntityTypeMapping TypeName="dataprojeModel.Faturalars">
+        <MappingFragment StoreEntitySet="Faturalars">
+          <ScalarProperty Name="Faturaid" ColumnName="Faturaid" />
+          <ScalarProperty Name="FaturaSeriNo" ColumnName="FaturaSeriNo" />
+          <ScalarProperty Name="FaturaSıraNo" ColumnName="FaturaSıraNo" />
+          <ScalarProperty Name="Tarih" ColumnName="Tarih" />
+          <ScalarProperty Name="VergiDairesi" ColumnName="VergiDairesi" />
+          <ScalarProperty Name="Saat" ColumnName="Saat" />
+          <ScalarProperty Name="TeslimEden" ColumnName="TeslimEden" />
+          <ScalarProperty Name="TeslimAlan" ColumnName="TeslimAlan" />
+          <ScalarProperty Name="Toplam" ColumnName="Toplam" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

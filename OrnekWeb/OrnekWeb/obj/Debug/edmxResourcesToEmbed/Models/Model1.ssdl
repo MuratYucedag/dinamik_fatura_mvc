@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="dataprojeModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="FaturaKalems">
+    <Key>
+      <PropertyRef Name="FaturaKalemid" />
+    </Key>
+    <Property Name="FaturaKalemid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Aciklama" Type="varchar" MaxLength="100" />
+    <Property Name="Miktar" Type="int" Nullable="false" />
+    <Property Name="BirimFiyat" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="Tutar" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="Faturaid" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Faturalars">
+    <Key>
+      <PropertyRef Name="Faturaid" />
+    </Key>
+    <Property Name="Faturaid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FaturaSeriNo" Type="char" MaxLength="1" />
+    <Property Name="FaturaSıraNo" Type="varchar" MaxLength="6" />
+    <Property Name="Tarih" Type="datetime" Nullable="false" />
+    <Property Name="VergiDairesi" Type="varchar" MaxLength="60" />
+    <Property Name="Saat" Type="char" MaxLength="5" />
+    <Property Name="TeslimEden" Type="varchar" MaxLength="30" />
+    <Property Name="TeslimAlan" Type="varchar" MaxLength="30" />
+    <Property Name="Toplam" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_dbo_FaturaKalems_dbo_Faturalars_Faturaid">
+    <End Role="Faturalars" Type="Self.Faturalars" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="FaturaKalems" Type="Self.FaturaKalems" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Faturalars">
+        <PropertyRef Name="Faturaid" />
+      </Principal>
+      <Dependent Role="FaturaKalems">
+        <PropertyRef Name="Faturaid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="dataprojeModelStoreContainer">
+    <EntitySet Name="FaturaKalems" EntityType="Self.FaturaKalems" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Faturalars" EntityType="Self.Faturalars" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_dbo_FaturaKalems_dbo_Faturalars_Faturaid" Association="Self.FK_dbo_FaturaKalems_dbo_Faturalars_Faturaid">
+      <End Role="Faturalars" EntitySet="Faturalars" />
+      <End Role="FaturaKalems" EntitySet="FaturaKalems" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
